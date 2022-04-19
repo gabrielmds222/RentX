@@ -1,4 +1,5 @@
 import React from 'react';
+import { StatusBar } from 'react-native';
 
 import {
     Container,
@@ -8,7 +9,15 @@ import {
 export function Home(){
   return(
     <Container>
-        <Header></Header>
+      <StatusBar 
+        barStyle="light-content"
+        backgroundColor="transparent"
+        translucent
+      />
+      
+      <Header>
+
+      </Header>
     </Container>
   );
 }
