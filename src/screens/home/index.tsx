@@ -2,6 +2,8 @@ import React from 'react';
 import { StatusBar } from 'react-native';
 import { RFValue} from 'react-native-responsive-fontsize';
 
+import { Car } from '../../components/Car';
+
 import Logo from '../../assets/logo.svg';
 
 import {
@@ -33,6 +35,8 @@ export function Home(){
         </HeaderContent>
         
       </Header>
+
+      <Car />
     </Container>
   );
 }
