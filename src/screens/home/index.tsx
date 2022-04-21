@@ -14,6 +14,16 @@ import {
 } from './styles';
 
 export function Home(){
+  const carData = {
+    brand: 'AUDI',
+    name: 'RS 5 Coupé',
+    rent: {
+        period: 'Ao dia',
+        price: '120',
+    },
+    thumbnail: 'https://production.autoforce.com/uploads/version/profile_image/6301/comprar-easy-1-0_cc66d4af36.png',
+    
+  }
   return(
     <Container>
       <StatusBar 
@@ -36,7 +46,7 @@ export function Home(){
         
       </Header>
 
-      <Car />
+      <Car data={carData}/>
     </Container>
   );
 }
