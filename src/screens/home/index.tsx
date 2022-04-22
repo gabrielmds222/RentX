@@ -11,6 +11,7 @@ import {
     Header,
     HeaderContent,
     TotalCars,
+    CarList,
 } from './styles';
 
 export function Home(){
@@ -21,7 +22,7 @@ export function Home(){
         period: 'Ao dia',
         price: '120',
     },
-    thumbnail: 'https://production.autoforce.com/uploads/version/profile_image/6301/comprar-easy-1-0_cc66d4af36.png',
+    thumbnail: 'https://cronos.fiat.com.br/static/folds/4/mobile/01-mt/00.png',
     
   }
   return(
@@ -46,7 +47,11 @@ export function Home(){
         
       </Header>
 
-      <Car data={carData}/>
+      <CarList 
+        data={[1, 2, 3, 4, 5, 6, 7, 8, 9]}
+        keyExtractor={item => String(item)}
+        renderItem={({ item }) => <Car data={carData} />}
+      />
     </Container>
   );
 }
