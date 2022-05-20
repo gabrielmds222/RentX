@@ -54,7 +54,12 @@ export function CarDetails(){
         </Details>
 
         <Accessories>
-          <Accessory />
+          <Accessory name="380KM/h" icon={SpeedSvg}/>
+          <Accessory name="3.2s" icon={AccelerationSvg}/>
+          <Accessory name="800 HP" icon={ForceSvg}/>
+          <Accessory name="Gasolina" icon={GasolineSvg}/>
+          <Accessory name="Auto" icon={ExchangeSvg}/>
+          <Accessory name="2 pessoas" icon={PeopleSvg}/>
         </Accessories>
 
         <About>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum consequatur eum commodi facere reprehenderit illum ex eaque amet, expedita blanditiis?</About>
