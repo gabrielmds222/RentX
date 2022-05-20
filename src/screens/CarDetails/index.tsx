@@ -4,6 +4,13 @@ import { BackButton } from '../../components/BackButton';
 import { ImageSlider } from '../../components/ImageSlider';
 import { Accessory } from '../../components/Accessory';
 
+import SpeedSvg from '../../assets/speed.svg';
+import AccelerationSvg from '../../assets/acceleration.svg';
+import ForceSvg from '../../assets/force.svg';
+import GasolineSvg from '../../assets/gasoline.svg';
+import ExchangeSvg from '../../assets/exchange.svg';
+import PeopleSvg from '../../assets/people.svg';
+
 import {
     Container,
     Header,
@@ -16,6 +23,7 @@ import {
     Rent,
     Period,
     Price,
+    Accessories,
     About,
 } from './styles';
 
@@ -44,6 +52,10 @@ export function CarDetails(){
             <Price>R$580</Price>
           </Rent>
         </Details>
+
+        <Accessories>
+          <Accessory />
+        </Accessories>
 
         <About>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum consequatur eum commodi facere reprehenderit illum ex eaque amet, expedita blanditiis?</About>
       </Content>
