@@ -20,6 +20,11 @@ export function Scheduling(){
 
   return(
     <Container>
+      <StatusBar
+        barStyle='light-content'
+        translucent
+        backgroundColor='transparent'
+        /> 
 
       <Header>
         <BackButton 
