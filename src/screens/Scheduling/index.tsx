@@ -43,14 +43,14 @@ export function Scheduling(){
         <RentalPeriod>
           <DateInfo>
             <DateTitle>DE</DateTitle>
-              <DateValue selected={false}>27/06/2001</DateValue>
+              <DateValue selected={false}>27/06/2022</DateValue>
           </DateInfo>
 
           <ArrowSvg />
 
           <DateInfo>
             <DateTitle>ATÉ</DateTitle>
-              <DateValue selected={false}>27/06/2001</DateValue>
+              <DateValue selected={false}>27/06/2022</DateValue>
           </DateInfo>
         </RentalPeriod>
       </Header>
