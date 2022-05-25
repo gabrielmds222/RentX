@@ -1,6 +1,8 @@
 import React from 'react';
 import { StatusBar, useWindowDimensions} from 'react-native';
 
+import { ConfirmButton } from '../../components/ConfirmButton'
+
 import LogoSvg from '../../assets/logo_background_gray.svg'
 import DoneSvg from '../../assets/done.svg';
 
@@ -37,7 +39,7 @@ export function SchedulingComplete(){
       </Content>
 
       <Footer>
-          {/* <ConfirmButton title="OK"/> */}
+          <ConfirmButton title="OK"/>
       </Footer>
 
     </Container>
