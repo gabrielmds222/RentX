@@ -39,7 +39,7 @@ export function SchedulingComplete(){
       </Content>
 
       <Footer>
-          <ConfirmButton title="OK"/>
+          <ConfirmButton/>
       </Footer>
 
     </Container>

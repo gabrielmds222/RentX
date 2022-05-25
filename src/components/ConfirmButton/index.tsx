@@ -6,14 +6,10 @@ import {
   Title
 } from './styles';
 
-interface Props extends RectButtonProps {
-  title: string;
-}
-
-export function ConfirmButton({ title, ...rest }: Props) {
+export function ConfirmButton() {
   return (
-    <Container {...rest}>
-      <Title>{title}</Title>
+    <Container>
+      <Title>OK</Title>
     </Container>
   );
 }
