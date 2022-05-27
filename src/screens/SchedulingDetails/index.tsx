@@ -72,7 +72,7 @@ export function SchedulingDetails(){
 
           <Rent>
             <Period>Ao dia</Period>
-            <Price>R$580</Price>
+            <Price>R$ 580</Price>
           </Rent>
         </Details>
 
@@ -121,7 +121,7 @@ export function SchedulingDetails(){
       </Content>
 
       <Footer>
-        <Button title="Confirmar" color="red" onPress={handleConfirmRental}/>
+        <Button title="Alugar agora" color={theme.colors.success} onPress={handleConfirmRental}/>
       </Footer>
     </Container>
   );
