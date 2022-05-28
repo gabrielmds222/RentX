@@ -7,6 +7,7 @@ import { Car } from '../../components/Car';
 
 import Logo from '../../assets/logo.svg';
 import api from '../../services/api';
+import { CarDTO } from '../../dtos/carDTO';
 
 import {
     Container,
@@ -17,7 +18,7 @@ import {
 } from './styles';
 
 export function Home(){
-  const [cars, setCars] = useState([]);
+  const [cars, setCars] = useState<CarDTO[]>([]);
   const [loading, setLoading] = useState(true);
   const navigation = useNavigation();
 
@@ -74,8 +75,9 @@ export function Home(){
 
       <CarList 
         data={cars}
-        keyExtractor={item => String(item)}
-        renderItem={({ item }) => <Car data={carData} onPress={handleCarDetails}/>}
+        keyExtractor={item => item.id}
+        renderItem={({ item }) => 
+        <Car data={item} onPress={handleCarDetails}/>}
       />
     </Container>
   );
