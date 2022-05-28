@@ -23,19 +23,8 @@ export function Home(){
   const [loading, setLoading] = useState(true);
   const navigation = useNavigation();
 
-  const carData = {
-    brand: 'AUDI',
-    name: 'RS 5 Coupé',
-    rent: {
-        period: 'Ao dia',
-        price: '120',
-    },
-    thumbnail: 'https://cronos.fiat.com.br/static/folds/4/mobile/01-mt/00.png',
-    
-  }
-
-  function handleCarDetails() {
-    navigation.navigate('CarDetails')
+  function handleCarDetails(car: CarDTO) {
+    navigation.navigate('CarDetails', { car })
   }
 
   useEffect(() => {
@@ -79,7 +68,7 @@ export function Home(){
           data={cars}
           keyExtractor={item => item.id}
           renderItem={({ item }) => 
-          <Car data={item} onPress={handleCarDetails}/>}
+          <Car data={item} onPress={() => handleCarDetails(item)}/>}
         />
       }
     </Container>
