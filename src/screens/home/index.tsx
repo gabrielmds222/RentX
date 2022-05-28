@@ -4,6 +4,7 @@ import { StatusBar } from 'react-native';
 import { RFValue} from 'react-native-responsive-fontsize';
 
 import { Car } from '../../components/Car';
+import { Load } from '../../components/Load';
 
 import Logo from '../../assets/logo.svg';
 import api from '../../services/api';
@@ -73,12 +74,14 @@ export function Home(){
         
       </Header>
 
-      <CarList 
-        data={cars}
-        keyExtractor={item => item.id}
-        renderItem={({ item }) => 
-        <Car data={item} onPress={handleCarDetails}/>}
-      />
+      {loading ? <Load/>:
+        <CarList 
+          data={cars}
+          keyExtractor={item => item.id}
+          renderItem={({ item }) => 
+          <Car data={item} onPress={handleCarDetails}/>}
+        />
+      }
     </Container>
   );
 }
