@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'react-native';
 import { RFValue} from 'react-native-responsive-fontsize';
@@ -6,6 +6,7 @@ import { RFValue} from 'react-native-responsive-fontsize';
 import { Car } from '../../components/Car';
 
 import Logo from '../../assets/logo.svg';
+import api from '../../services/api';
 
 import {
     Container,
@@ -16,6 +17,8 @@ import {
 } from './styles';
 
 export function Home(){
+  const [cars, setCars] = useState([]);
+  const [loading, setLoading] = useState(true);
   const navigation = useNavigation();
 
   const carData = {
@@ -32,6 +35,20 @@ export function Home(){
   function handleCarDetails() {
     navigation.navigate('CarDetails')
   }
+
+  useEffect(() => {
+    async function fetchCars() {
+      try {
+        const response = await api.get('/cars');
+        setCars(response.data);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchCars();
+  }, []);
 
   return(
     <Container>
@@ -56,7 +73,7 @@ export function Home(){
       </Header>
 
       <CarList 
-        data={[1, 2, 3, 4, 5, 6, 7, 8, 9]}
+        data={cars}
         keyExtractor={item => String(item)}
         renderItem={({ item }) => <Car data={carData} onPress={handleCarDetails}/>}
       />
