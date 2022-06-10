@@ -56,6 +56,7 @@ export function SchedulingDetails(){
   const navigation = useNavigation();
   const route = useRoute();
   const { car, dates } = route.params as Params;
+  const rentTotal = Number(dates.length * car.rent.price);
 
   function handleConfirmRental() {
     navigation.navigate('SchedulingComplete');
@@ -138,8 +139,8 @@ export function SchedulingDetails(){
         <RentalPrice>
           <RentalPriceLabel>TOTAL</RentalPriceLabel>
           <RentalPriceDetails>
-            <RentalPriceQuota>R$ 580 x3 diárias</RentalPriceQuota>
-            <RentalPriceTotal>R$ 2.900</RentalPriceTotal>
+            <RentalPriceQuota>{`R$ ${car.rent.price} x${dates.length} diárias`}</RentalPriceQuota>
+            <RentalPriceTotal>R$ {rentTotal}</RentalPriceTotal>
           </RentalPriceDetails>
         </RentalPrice>
       </Content>
