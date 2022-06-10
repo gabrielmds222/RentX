@@ -174,7 +174,13 @@ export function SchedulingDetails(){
       </Content>
 
       <Footer>
-        <Button title="Alugar agora" color={theme.colors.success} onPress={handleConfirmRental}/>
+        <Button 
+        title="Alugar agora" 
+        color={theme.colors.success} 
+        onPress={handleConfirmRental}
+        enabled={!isLoading}
+        loading={isLoading}
+        />
       </Footer>
     </Container>
   );
