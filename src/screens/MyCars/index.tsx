@@ -3,6 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
 import { FlatList, StatusBar } from 'react-native';
 import { useTheme } from 'styled-components';
+import { Load } from '../../components/Load';
 import { BackButton } from '../../components/BackButton';
 import { Car } from '../../components/Car';
 import { CarDTO } from '../../dtos/CarDTO';
@@ -16,11 +17,11 @@ import {
   Appointments,
   AppointmentsQuantity,
   AppointmentsTitle,
-//   CarFooter,
-//   CarFooterDate,
-//   CarFooterPeriod,
-//   CarFooterTitle,
-//   CarWrapper,
+  CarFooter,
+  CarFooterDate,
+  CarFooterPeriod,
+  CarFooterTitle,
+  CarWrapper,
 } from './styles';
 
 interface CarProps {
@@ -34,7 +35,7 @@ interface CarProps {
 
 export function MyCars() {
   const [cars, setCars] = useState<CarProps[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const theme = useTheme();
   const navigation = useNavigation();
 
@@ -51,7 +52,7 @@ export function MyCars() {
       } catch (err) {
         console.log(err);
       } finally {
-        setLoading(false);
+        setIsLoading(false);
       }
     }
     fetchCars();
@@ -75,21 +76,39 @@ export function MyCars() {
             <SubTitle>Conforto, segurança e praticidade.</SubTitle>
       </Header>
 
-      <Content>
-        <Appointments>
+      {isLoading ? (
+        <Load />
+      ) : (
+        <Content>
+          <Appointments>
             <AppointmentsTitle>Agendamentos feitos</AppointmentsTitle>
             <AppointmentsQuantity>{cars.length}</AppointmentsQuantity>
-        </Appointments>
-        <FlatList
+          </Appointments>
+          <FlatList
             data={cars}
             keyExtractor={(item) => String(item.id)}
             showsVerticalScrollIndicator={false}
             renderItem={({ item }) => (
-            //   <CarWrapper>
+              <CarWrapper>
                 <Car data={item.car} />
+                <CarFooter>
+                  <CarFooterTitle>Período</CarFooterTitle>
+                  <CarFooterPeriod>
+                    <CarFooterDate>{item.startDate}</CarFooterDate>
+                    <AntDesign
+                      name='arrowright'
+                      size={20}
+                      color={theme.colors.title}
+                      style={{ marginHorizontal: 10 }}
+                    />
+                    <CarFooterDate>{item.endDate}</CarFooterDate>
+                  </CarFooterPeriod>
+                </CarFooter>
+              </CarWrapper>
             )}
           />
-      </Content>
+        </Content>
+      )}
     </Container>
   );
 }
