@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useState, useEffect } from 'react';
 import { useNavigation, useRoute } from '@react-navigation/native';
-
+import { format } from 'date-fns';
 import { Feather } from '@expo/vector-icons';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { useTheme } from 'styled-components';
@@ -11,7 +11,8 @@ import { Accessory } from '../../components/Accessory';
 import { Button } from '../../components/Button';
 
 import { CarDTO } from '../../dtos/carDTO';
-import { getAccessoryIcon } from '../../utils/getAccessoryIcon';
+import { getAccessoryIcon} from '../../utils/getAccessoryIcon';
+import { getPlatformDate } from '../../utils/getPlatformDate';
 
 import {
     Container,
@@ -40,14 +41,21 @@ import {
 } from './styles';
 
 interface Params {
-  car: CarDTO
+  car: CarDTO;
+  dates: string[];
+}
+
+interface RentalPeriod {
+  start: string;
+  end: string;
 }
 
 export function SchedulingDetails(){
+  const [rentalPeriod, setRentalPeriod] = useState<RentalPeriod>({} as RentalPeriod)
   const theme = useTheme();
   const navigation = useNavigation();
   const route = useRoute();
-  const { car } = route.params as Params;
+  const { car, dates } = route.params as Params;
 
   function handleConfirmRental() {
     navigation.navigate('SchedulingComplete');
@@ -56,6 +64,13 @@ export function SchedulingDetails(){
   function handleBack() {
     navigation.goBack();
   }
+
+  useEffect(() => {
+    setRentalPeriod({
+        start: format(getPlatformDate(new Date(dates[0])), 'dd/MM/yyyy'),
+        end: format(getPlatformDate(new Date(dates[dates.length - 1])), 'dd/MM/yyyy')
+    })
+}, [])
 
   return(
     <Container>
@@ -105,7 +120,7 @@ export function SchedulingDetails(){
 
           <DateInfo>
             <DateTitle>DE</DateTitle>
-            <DateValue>27/06/2022</DateValue>
+            <DateValue>{rentalPeriod.start}</DateValue>
           </DateInfo>
 
           <Feather
@@ -116,7 +131,7 @@ export function SchedulingDetails(){
 
           <DateInfo>
             <DateTitle>ATÉ</DateTitle>
-            <DateValue>27/06/2022</DateValue>
+            <DateValue>{rentalPeriod.end}</DateValue>
           </DateInfo>
         </RentalPeriod>
 

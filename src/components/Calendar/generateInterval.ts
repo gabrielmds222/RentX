@@ -1,7 +1,7 @@
 import { eachDayOfInterval, format } from 'date-fns';
 
 import { MarkedDateProps, DayProps } from '.';
-import { getPlatformDate } from '../../utils/getPlataformDate';
+import { getPlatformDate } from '../../utils/getPlatformDate';
 import theme from '../../styles/theme';
 
 export function generateInterval(start: DayProps, end: DayProps){

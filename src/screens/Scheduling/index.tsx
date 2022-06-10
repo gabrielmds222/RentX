@@ -5,7 +5,7 @@ import { format } from 'date-fns';
 import { BackButton } from '../../components/BackButton';
 import { StatusBar, Alert } from 'react-native';
 import { Button } from '../../components/Button';
-import { getPlatformDate } from '../../utils/getPlataformDate';
+import { getPlatformDate } from '../../utils/getPlatformDate';
 import { CarDTO } from '../../dtos/carDTO';
 import { 
   Calendar, 
