@@ -65,20 +65,20 @@ export function SchedulingDetails(){
 
       <CarImages>
         <ImageSlider 
-          imagesUrl={['https://cronos.fiat.com.br/static/folds/4/mobile/01-mt/00.png']}
+          imagesUrl={car.photos}
         />
       </CarImages>
 
       <Content>
         <Details>
           <Description>
-            <Brand>Fiat</Brand>
-            <Name>Cronos</Name>
+            <Brand>{car.brand}</Brand>
+            <Name>{car.name}</Name>
           </Description>
 
           <Rent>
-            <Period>Ao dia</Period>
-            <Price>R$ 580</Price>
+            <Period>{car.rent.period}</Period>
+            <Price>R$ {car.rent.price}</Price>
           </Rent>
         </Details>
 
