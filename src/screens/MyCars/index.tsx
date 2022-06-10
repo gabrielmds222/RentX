@@ -9,13 +9,25 @@ import { CarDTO } from '../../dtos/CarDTO';
 import  api  from '../../services/api';
 import {
   Container,
- 
+  Content,
+  Header,
+  SubTitle,
+  Title,
+  Appointments,
+  AppointmentsQuantity,
+  AppointmentsTitle,
 } from './styles';
 
 
 export function MyCars() {
   const [cars, setCars] = useState<CarDTO[]>([]);
   const [loading, setLoading] = useState(true);
+  const theme = useTheme();
+  const navigation = useNavigation();
+
+  function handleBack() {
+    navigation.goBack();
+  }
 
   useEffect(() => {
     async function fetchCars() {
@@ -34,7 +46,28 @@ export function MyCars() {
 
   return (
     <Container>
+        <Header>
+            <StatusBar
+            barStyle='light-content'
+            translucent
+            backgroundColor='transparent'
+            />
 
+            <BackButton color={theme.colors.shape} onPress={handleBack} />
+
+            <Title>
+            Escolha uma{'\n'}data de início e{'\n'}fim do aluguel
+            </Title>
+
+            <SubTitle>Conforto, segurança e praticidade.</SubTitle>
+      </Header>
+
+      <Content>
+        <Appointments>
+            <AppointmentsTitle>Agendamentos feitos</AppointmentsTitle>
+            <AppointmentsQuantity>{cars.length}</AppointmentsQuantity>
+        </Appointments>
+      </Content>
     </Container>
   );
 }
