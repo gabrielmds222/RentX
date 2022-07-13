@@ -17,24 +17,31 @@ export function ImageSlider({imagesUrl}: Props) {
   return(
     <Container>
         <ImageIndexes>
-            <ImageIndex active={true} />
-            <ImageIndex active={false} />
-            <ImageIndex active={false} />
-            <ImageIndex active={false} />
+            {
+                imagesUrl.map((_, index) => (
+                    <ImageIndex 
+                    key={String(index)} 
+                    active={true}/>
+                ))
+        }
         </ImageIndexes>
 
-        <CarImageWrapper>
-            <FlatList 
-                data={imagesUrl}
-                keyExtractor={key => key}
-                renderItem={({ item }) => (
-                    <CarImage 
+        
+        <FlatList 
+            data={imagesUrl}
+            keyExtractor={key => key}
+            renderItem={({ item }) => (
+                <CarImageWrapper>
+                <CarImage 
                     source={{ uri: item }}
-                    resizeMode="contain" 
-                    />
-                )}
-            />
-        </CarImageWrapper>
+                    resizeMode="contain"
+                />
+                </CarImageWrapper>
+            )}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            pagingEnabled
+        />
 
     </Container>
   );
