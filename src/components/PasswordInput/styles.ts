@@ -27,7 +27,7 @@ export const IconContainer = styled.View<Props>`
 `;
 
 export const InputText = styled(TextInput)<Props>`
-    flex: 1;
+     flex: 1;
 
     background-color: ${({ theme }) => theme.colors.background_secondary};
     color: ${({ theme }) => theme.colors.text};
