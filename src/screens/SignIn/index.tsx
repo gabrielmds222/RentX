@@ -2,6 +2,7 @@ import React from 'react';
 import { StatusBar } from 'react-native';
 
 import { Button } from '../../components/Button';
+import { Input } from '../../components/Input';
 import theme from '../../styles/theme';
 
 import {
@@ -30,6 +31,10 @@ export function SignIn(){
             uma exmepriência incrível.
           </SubTitle>
         </Header>
+
+        <Form>
+          <Input />
+        </Form>
 
         <Footer>
           <Button 
