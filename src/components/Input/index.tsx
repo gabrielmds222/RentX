@@ -14,11 +14,12 @@ interface InputProps extends TextInputProps {
 }
 
 export function Input({
-    iconName
+    iconName,
+    ...rest
 }: InputProps){
     const theme = useTheme();
   return(
-    <Container>
+    <Container >
         <IconContainer>
             <Feather 
                 name={iconName}
@@ -27,7 +28,7 @@ export function Input({
             />
         </IconContainer>
 
-        <InputText />
+        <InputText {...rest}/>
     </Container>
   );
 }
