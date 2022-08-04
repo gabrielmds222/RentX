@@ -33,7 +33,9 @@ export function SignIn(){
         </Header>
 
         <Form>
-          <Input />
+          <Input 
+            iconName="mail"
+          />
         </Form>
 
         <Footer>
