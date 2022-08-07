@@ -7,6 +7,11 @@ import { Bullet } from '../../../components/Bullet';
 import {
     Container,
     Header,
+    Steps,
+    Title,
+    SubTitle,
+    Form,
+    FormTitle,
 } from './styles';
 
 export function SignUpFirstStep(){
@@ -20,8 +25,20 @@ export function SignUpFirstStep(){
     <Container>
       <Header>
         <BackButton onPress={handleBack}/>
-        <Bullet active={false}/>
+        <Steps>
+          <Bullet active={false}/>
+          <Bullet />
+        </Steps>
       </Header>
+
+      <Title>Crie sua {'\n'}conta</Title>
+      <SubTitle>Faça seu cadastro de{'\n'} forma rápida e fácil</SubTitle>
+
+      <Form>
+        <FormTitle>
+          1. Dados
+        </FormTitle>
+      </Form>
     </Container>
   );
 }
