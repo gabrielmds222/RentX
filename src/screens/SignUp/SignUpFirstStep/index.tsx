@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/core';
 
 import { BackButton } from '../../../components/BackButton';
+import { Bullet } from '../../../components/Bullet';
 
 import {
     Container,
@@ -19,6 +20,7 @@ export function SignUpFirstStep(){
     <Container>
       <Header>
         <BackButton onPress={handleBack}/>
+        <Bullet active={false}/>
       </Header>
     </Container>
   );
