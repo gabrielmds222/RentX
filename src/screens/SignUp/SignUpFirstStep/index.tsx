@@ -23,10 +23,13 @@ import {
     FormTitle,
 } from './styles';
 
-import * as Yup from 'yup'
+import * as Yup from 'yup';
+import { useAuth } from '../../../hooks/auth';
 
 export function SignUpFirstStep(){
   const navigation = useNavigation();
+  const { user } = useAuth();
+  console.log('usuario autenticado', user);
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
